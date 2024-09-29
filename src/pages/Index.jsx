@@ -1,12 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import Header from '../components/Header';
+import SocialLink from '../components/SocialLink';
+import { GithubIcon, TwitterIcon, LinkedinIcon, InstagramIcon } from 'lucide-react';
 
 const Index = () => {
+  const socialLinks = [
+    { href: 'https://github.com/yourusername', icon: GithubIcon, label: 'GitHub' },
+    { href: 'https://twitter.com/yourusername', icon: TwitterIcon, label: 'Twitter' },
+    { href: 'https://linkedin.com/in/yourusername', icon: LinkedinIcon, label: 'LinkedIn' },
+    { href: 'https://instagram.com/yourusername', icon: InstagramIcon, label: 'Instagram' },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+      <main className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6 text-center">My Social Links</h1>
+        <div className="max-w-md mx-auto">
+          {socialLinks.map((link, index) => (
+            <SocialLink key={index} {...link} />
+          ))}
+        </div>
+      </main>
     </div>
   );
 };
